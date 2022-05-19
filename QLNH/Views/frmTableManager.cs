@@ -732,8 +732,12 @@ namespace QLNH.Views
 
 
 
+
         #endregion
 
-       
+        private void flpBill_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

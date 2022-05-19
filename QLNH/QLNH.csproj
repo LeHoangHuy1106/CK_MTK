@@ -79,16 +79,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\BillDAO.cs" />
-    <Compile Include="DAO\BillInfoDAO.cs" />
-    <Compile Include="DAO\CategoryDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\FoodDAO.cs" />
-    <Compile Include="DAO\IconDAO.cs" />
-    <Compile Include="DAO\MenuDAO.cs" />
-    <Compile Include="DAO\TableDAO.cs" />
-    <Compile Include="DAO\Upload.cs" />
+    <Compile Include="Controler\AccountDAO.cs" />
+    <Compile Include="Controler\BillDAO.cs" />
+    <Compile Include="Controler\BillInfoDAO.cs" />
+    <Compile Include="Controler\CategoryDAO.cs" />
+    <Compile Include="Controler\DataProvider.cs" />
+    <Compile Include="Controler\FoodDAO.cs" />
+    <Compile Include="Controler\IconDAO.cs" />
+    <Compile Include="Controler\MenuDAO.cs" />
+    <Compile Include="Controler\TableDAO.cs" />
+    <Compile Include="Controler\Upload.cs" />
+    <Compile Include="Controler\Pattern\StatePattern\TableState.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

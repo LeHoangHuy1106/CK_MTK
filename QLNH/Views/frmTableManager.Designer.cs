@@ -118,15 +118,15 @@ namespace QLNH.Views
             this.functionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1413, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1884, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -136,20 +136,20 @@ namespace QLNH.Views
             this.personalToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountInformationToolStripMenuItem.Name = "accountInformationToolStripMenuItem";
-            this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.accountInformationToolStripMenuItem.Text = "Account profile";
             // 
             // personalToolStripMenuItem
             // 
             this.personalToolStripMenuItem.Name = "personalToolStripMenuItem";
-            this.personalToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.personalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.personalToolStripMenuItem.Text = "Personal";
             this.personalToolStripMenuItem.Click += new System.EventHandler(this.personalToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -159,14 +159,14 @@ namespace QLNH.Views
             this.payToolStripMenuItem,
             this.addFoodToolStripMenuItem});
             this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
-            this.functionToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.functionToolStripMenuItem.Text = "Function";
             // 
             // payToolStripMenuItem
             // 
             this.payToolStripMenuItem.Name = "payToolStripMenuItem";
             this.payToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.payToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.payToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.payToolStripMenuItem.Text = "Pay";
             this.payToolStripMenuItem.Click += new System.EventHandler(this.payToolStripMenuItem_Click);
             // 
@@ -174,7 +174,7 @@ namespace QLNH.Views
             // 
             this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
             this.addFoodToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.addFoodToolStripMenuItem.Text = "Add food";
             this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
             // 
@@ -182,10 +182,10 @@ namespace QLNH.Views
             // 
             this.panel2.BackColor = System.Drawing.Color.SandyBrown;
             this.panel2.Controls.Add(this.lvBill);
-            this.panel2.Location = new System.Drawing.Point(2, 381);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(3, 469);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(537, 10);
+            this.panel2.Size = new System.Drawing.Size(716, 12);
             this.panel2.TabIndex = 2;
             // 
             // lvBill
@@ -201,10 +201,10 @@ namespace QLNH.Views
             this.lvBill.FullRowSelect = true;
             this.lvBill.GridLines = true;
             this.lvBill.HideSelection = false;
-            this.lvBill.Location = new System.Drawing.Point(2, 18);
-            this.lvBill.Margin = new System.Windows.Forms.Padding(2);
+            this.lvBill.Location = new System.Drawing.Point(3, 22);
+            this.lvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvBill.Name = "lvBill";
-            this.lvBill.Size = new System.Drawing.Size(402, 99);
+            this.lvBill.Size = new System.Drawing.Size(535, 121);
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
@@ -239,18 +239,19 @@ namespace QLNH.Views
             this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.nmDiscount);
             this.panel3.Controls.Add(this.btnCheck);
-            this.panel3.Location = new System.Drawing.Point(731, 496);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(975, 610);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(541, 92);
+            this.panel3.Size = new System.Drawing.Size(721, 113);
             this.panel3.TabIndex = 3;
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(16, 52);
+            this.checkedListBox1.Location = new System.Drawing.Point(21, 64);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 34);
+            this.checkedListBox1.Size = new System.Drawing.Size(159, 38);
             this.checkedListBox1.TabIndex = 12;
             // 
             // button1
@@ -258,10 +259,10 @@ namespace QLNH.Views
             this.button1.BackColor = System.Drawing.SystemColors.Info;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(14, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(19, 12);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 41);
+            this.button1.Size = new System.Drawing.Size(163, 50);
             this.button1.TabIndex = 11;
             this.button1.Text = "Meet Table";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -272,10 +273,10 @@ namespace QLNH.Views
             // 
             this.panel1.BackColor = System.Drawing.Color.Coral;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(276, 26);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(368, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(91, 24);
+            this.panel1.Size = new System.Drawing.Size(121, 30);
             this.panel1.TabIndex = 10;
             // 
             // label1
@@ -284,10 +285,9 @@ namespace QLNH.Views
             this.label1.BackColor = System.Drawing.Color.Coral;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(9, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 14);
+            this.label1.Size = new System.Drawing.Size(99, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "Discount (%)";
             // 
@@ -295,10 +295,10 @@ namespace QLNH.Views
             // 
             this.cbSwitchTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSwitchTable.FormattingEnabled = true;
-            this.cbSwitchTable.Location = new System.Drawing.Point(150, 52);
-            this.cbSwitchTable.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSwitchTable.Location = new System.Drawing.Point(200, 64);
+            this.cbSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSwitchTable.Name = "cbSwitchTable";
-            this.cbSwitchTable.Size = new System.Drawing.Size(112, 22);
+            this.cbSwitchTable.Size = new System.Drawing.Size(148, 25);
             this.cbSwitchTable.TabIndex = 7;
             // 
             // btnSwitchTable
@@ -306,10 +306,10 @@ namespace QLNH.Views
             this.btnSwitchTable.BackColor = System.Drawing.SystemColors.Info;
             this.btnSwitchTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSwitchTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSwitchTable.Location = new System.Drawing.Point(150, 10);
-            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSwitchTable.Location = new System.Drawing.Point(200, 12);
+            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(112, 41);
+            this.btnSwitchTable.Size = new System.Drawing.Size(149, 50);
             this.btnSwitchTable.TabIndex = 6;
             this.btnSwitchTable.Text = "Switch Table";
             this.btnSwitchTable.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -320,10 +320,10 @@ namespace QLNH.Views
             // nmDiscount
             // 
             this.nmDiscount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmDiscount.Location = new System.Drawing.Point(276, 52);
-            this.nmDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.nmDiscount.Location = new System.Drawing.Point(368, 64);
+            this.nmDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nmDiscount.Name = "nmDiscount";
-            this.nmDiscount.Size = new System.Drawing.Size(91, 21);
+            this.nmDiscount.Size = new System.Drawing.Size(121, 25);
             this.nmDiscount.TabIndex = 5;
             this.nmDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -331,11 +331,11 @@ namespace QLNH.Views
             // 
             this.btnCheck.BackColor = System.Drawing.Color.Gold;
             this.btnCheck.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(401, 20);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCheck.Location = new System.Drawing.Point(535, 25);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.btnCheck.Size = new System.Drawing.Size(121, 49);
+            this.btnCheck.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCheck.Size = new System.Drawing.Size(161, 60);
             this.btnCheck.TabIndex = 3;
             this.btnCheck.Text = "Pay     \r\n{Ctrl + C}";
             this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -350,28 +350,30 @@ namespace QLNH.Views
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.nmFoodCount);
             this.panel4.Controls.Add(this.btnAddFood);
-            this.panel4.Location = new System.Drawing.Point(731, 27);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Location = new System.Drawing.Point(975, 33);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(541, 64);
+            this.panel4.Size = new System.Drawing.Size(721, 79);
             this.panel4.TabIndex = 4;
             // 
             // lbTable
             // 
             this.lbTable.AutoSize = true;
             this.lbTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTable.Location = new System.Drawing.Point(109, 24);
+            this.lbTable.Location = new System.Drawing.Point(145, 30);
+            this.lbTable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTable.Name = "lbTable";
-            this.lbTable.Size = new System.Drawing.Size(48, 17);
+            this.lbTable.Size = new System.Drawing.Size(61, 22);
             this.lbTable.TabIndex = 6;
             this.lbTable.Text = "Table";
             this.lbTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbTable
             // 
-            this.ptbTable.Location = new System.Drawing.Point(14, 3);
+            this.ptbTable.Location = new System.Drawing.Point(19, 4);
+            this.ptbTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ptbTable.Name = "ptbTable";
-            this.ptbTable.Size = new System.Drawing.Size(84, 58);
+            this.ptbTable.Size = new System.Drawing.Size(112, 71);
             this.ptbTable.TabIndex = 5;
             this.ptbTable.TabStop = false;
             // 
@@ -379,34 +381,33 @@ namespace QLNH.Views
             // 
             this.panel5.BackColor = System.Drawing.Color.Khaki;
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(420, 8);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Location = new System.Drawing.Point(560, 10);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(116, 22);
+            this.panel5.Size = new System.Drawing.Size(155, 27);
             this.panel5.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(21, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Quantity";
             // 
             // nmFoodCount
             // 
             this.nmFoodCount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmFoodCount.Location = new System.Drawing.Point(420, 34);
-            this.nmFoodCount.Margin = new System.Windows.Forms.Padding(2);
+            this.nmFoodCount.Location = new System.Drawing.Point(560, 42);
+            this.nmFoodCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nmFoodCount.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nmFoodCount.Name = "nmFoodCount";
-            this.nmFoodCount.Size = new System.Drawing.Size(115, 21);
+            this.nmFoodCount.Size = new System.Drawing.Size(153, 25);
             this.nmFoodCount.TabIndex = 3;
             this.nmFoodCount.Value = new decimal(new int[] {
             1,
@@ -418,11 +419,11 @@ namespace QLNH.Views
             // 
             this.btnAddFood.BackColor = System.Drawing.SystemColors.Info;
             this.btnAddFood.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFood.Location = new System.Drawing.Point(276, 4);
-            this.btnAddFood.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddFood.Location = new System.Drawing.Point(368, 5);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.btnAddFood.Size = new System.Drawing.Size(130, 54);
+            this.btnAddFood.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.btnAddFood.Size = new System.Drawing.Size(173, 66);
             this.btnAddFood.TabIndex = 2;
             this.btnAddFood.Text = "Add food\r\n{Ctrl + V}";
             this.btnAddFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -433,10 +434,10 @@ namespace QLNH.Views
             // 
             this.flpTable.AutoScroll = true;
             this.flpTable.BackColor = System.Drawing.Color.Moccasin;
-            this.flpTable.Location = new System.Drawing.Point(300, 72);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(2);
+            this.flpTable.Location = new System.Drawing.Point(400, 89);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(425, 515);
+            this.flpTable.Size = new System.Drawing.Size(567, 634);
             this.flpTable.TabIndex = 5;
             // 
             // panel6
@@ -444,41 +445,42 @@ namespace QLNH.Views
             this.panel6.BackColor = System.Drawing.Color.Bisque;
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(8, 27);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Location = new System.Drawing.Point(11, 33);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(287, 561);
+            this.panel6.Size = new System.Drawing.Size(383, 690);
             this.panel6.TabIndex = 6;
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.PapayaWhip;
             this.panel11.Controls.Add(this.flpBill);
-            this.panel11.Location = new System.Drawing.Point(4, 5);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2);
+            this.panel11.Location = new System.Drawing.Point(5, 6);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(280, 428);
+            this.panel11.Size = new System.Drawing.Size(373, 527);
             this.panel11.TabIndex = 1;
             // 
             // flpBill
             // 
             this.flpBill.AutoScroll = true;
             this.flpBill.BackColor = System.Drawing.Color.SeaShell;
-            this.flpBill.Location = new System.Drawing.Point(2, 3);
-            this.flpBill.Margin = new System.Windows.Forms.Padding(2);
+            this.flpBill.Location = new System.Drawing.Point(3, 4);
+            this.flpBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpBill.Name = "flpBill";
-            this.flpBill.Size = new System.Drawing.Size(273, 423);
+            this.flpBill.Size = new System.Drawing.Size(364, 521);
             this.flpBill.TabIndex = 0;
+            this.flpBill.Paint += new System.Windows.Forms.PaintEventHandler(this.flpBill_Paint);
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(4, 437);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
+            this.panel7.Location = new System.Drawing.Point(5, 538);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(280, 116);
+            this.panel7.Size = new System.Drawing.Size(373, 143);
             this.panel7.TabIndex = 0;
             // 
             // panel9
@@ -489,19 +491,19 @@ namespace QLNH.Views
             this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(2, 2);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2);
+            this.panel9.Location = new System.Drawing.Point(3, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(273, 67);
+            this.panel9.Size = new System.Drawing.Size(364, 82);
             this.panel9.TabIndex = 5;
             // 
             // txbDiscount
             // 
             this.txbDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbDiscount.Location = new System.Drawing.Point(89, 9);
-            this.txbDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.txbDiscount.Location = new System.Drawing.Point(119, 11);
+            this.txbDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbDiscount.Name = "txbDiscount";
-            this.txbDiscount.Size = new System.Drawing.Size(160, 16);
+            this.txbDiscount.Size = new System.Drawing.Size(213, 20);
             this.txbDiscount.TabIndex = 5;
             this.txbDiscount.Text = "0";
             this.txbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -509,10 +511,10 @@ namespace QLNH.Views
             // txbTax
             // 
             this.txbTax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbTax.Location = new System.Drawing.Point(89, 41);
-            this.txbTax.Margin = new System.Windows.Forms.Padding(2);
+            this.txbTax.Location = new System.Drawing.Point(119, 50);
+            this.txbTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbTax.Name = "txbTax";
-            this.txbTax.Size = new System.Drawing.Size(160, 16);
+            this.txbTax.Size = new System.Drawing.Size(213, 20);
             this.txbTax.TabIndex = 4;
             this.txbTax.Text = "0";
             this.txbTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -520,20 +522,18 @@ namespace QLNH.Views
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 41);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(15, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 16);
+            this.label4.Size = new System.Drawing.Size(42, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Tax:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(15, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.Size = new System.Drawing.Size(85, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Discount:";
             // 
@@ -543,10 +543,10 @@ namespace QLNH.Views
             this.panel8.Controls.Add(this.txbTotal);
             this.panel8.Controls.Add(this.label7);
             this.panel8.ForeColor = System.Drawing.Color.Crimson;
-            this.panel8.Location = new System.Drawing.Point(2, 74);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
+            this.panel8.Location = new System.Drawing.Point(3, 91);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(273, 37);
+            this.panel8.Size = new System.Drawing.Size(364, 46);
             this.panel8.TabIndex = 4;
             // 
             // txbTotal
@@ -554,10 +554,10 @@ namespace QLNH.Views
             this.txbTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTotal.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTotal.ForeColor = System.Drawing.Color.Crimson;
-            this.txbTotal.Location = new System.Drawing.Point(89, 10);
-            this.txbTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txbTotal.Location = new System.Drawing.Point(119, 12);
+            this.txbTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbTotal.Name = "txbTotal";
-            this.txbTotal.Size = new System.Drawing.Size(160, 16);
+            this.txbTotal.Size = new System.Drawing.Size(213, 20);
             this.txbTotal.TabIndex = 1;
             this.txbTotal.Text = "0";
             this.txbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -568,10 +568,9 @@ namespace QLNH.Views
             this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(11, 11);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(15, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 16);
+            this.label7.Size = new System.Drawing.Size(53, 19);
             this.label7.TabIndex = 0;
             this.label7.Text = "Total:";
             // 
@@ -583,10 +582,10 @@ namespace QLNH.Views
             this.panel10.Controls.Add(this.txbSearchFoodName);
             this.panel10.Controls.Add(this.panel2);
             this.panel10.Controls.Add(this.flpFood);
-            this.panel10.Location = new System.Drawing.Point(731, 95);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Location = new System.Drawing.Point(975, 117);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(541, 396);
+            this.panel10.Size = new System.Drawing.Size(721, 487);
             this.panel10.TabIndex = 7;
             // 
             // btnAllFood
@@ -596,10 +595,10 @@ namespace QLNH.Views
             this.btnAllFood.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnAllFood.FlatAppearance.BorderSize = 0;
             this.btnAllFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllFood.Location = new System.Drawing.Point(498, 3);
-            this.btnAllFood.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAllFood.Location = new System.Drawing.Point(664, 4);
+            this.btnAllFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAllFood.Name = "btnAllFood";
-            this.btnAllFood.Size = new System.Drawing.Size(38, 30);
+            this.btnAllFood.Size = new System.Drawing.Size(51, 37);
             this.btnAllFood.TabIndex = 8;
             this.btnAllFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllFood.UseVisualStyleBackColor = false;
@@ -612,10 +611,10 @@ namespace QLNH.Views
             this.btnSearchFood.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnSearchFood.FlatAppearance.BorderSize = 0;
             this.btnSearchFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFood.Location = new System.Drawing.Point(456, 3);
-            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchFood.Location = new System.Drawing.Point(608, 4);
+            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchFood.Name = "btnSearchFood";
-            this.btnSearchFood.Size = new System.Drawing.Size(38, 30);
+            this.btnSearchFood.Size = new System.Drawing.Size(51, 37);
             this.btnSearchFood.TabIndex = 7;
             this.btnSearchFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchFood.UseVisualStyleBackColor = false;
@@ -626,60 +625,59 @@ namespace QLNH.Views
             this.txbSearchFoodName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbSearchFoodName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbSearchFoodName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearchFoodName.Location = new System.Drawing.Point(10, 8);
-            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(2);
+            this.txbSearchFoodName.Location = new System.Drawing.Point(13, 10);
+            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
-            this.txbSearchFoodName.Size = new System.Drawing.Size(432, 19);
+            this.txbSearchFoodName.Size = new System.Drawing.Size(576, 23);
             this.txbSearchFoodName.TabIndex = 6;
             // 
             // flpFood
             // 
             this.flpFood.AutoScroll = true;
             this.flpFood.BackColor = System.Drawing.Color.SeaShell;
-            this.flpFood.Location = new System.Drawing.Point(2, 36);
-            this.flpFood.Margin = new System.Windows.Forms.Padding(2);
+            this.flpFood.Location = new System.Drawing.Point(3, 44);
+            this.flpFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpFood.Name = "flpFood";
-            this.flpFood.Size = new System.Drawing.Size(537, 341);
+            this.flpFood.Size = new System.Drawing.Size(716, 420);
             this.flpFood.TabIndex = 0;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Bisque;
             this.panel12.Controls.Add(this.flpCategory);
-            this.panel12.Location = new System.Drawing.Point(1276, 94);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2);
+            this.panel12.Location = new System.Drawing.Point(1701, 116);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(126, 492);
+            this.panel12.Size = new System.Drawing.Size(168, 606);
             this.panel12.TabIndex = 8;
             // 
             // flpCategory
             // 
             this.flpCategory.AutoScroll = true;
             this.flpCategory.BackColor = System.Drawing.Color.SeaShell;
-            this.flpCategory.Location = new System.Drawing.Point(2, 4);
-            this.flpCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.flpCategory.Location = new System.Drawing.Point(3, 5);
+            this.flpCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpCategory.Name = "flpCategory";
-            this.flpCategory.Size = new System.Drawing.Size(121, 486);
+            this.flpCategory.Size = new System.Drawing.Size(161, 598);
             this.flpCategory.TabIndex = 0;
             // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.Bisque;
             this.panel13.Controls.Add(this.label5);
-            this.panel13.Location = new System.Drawing.Point(1276, 27);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2);
+            this.panel13.Location = new System.Drawing.Point(1701, 33);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(126, 63);
+            this.panel13.Size = new System.Drawing.Size(168, 78);
             this.panel13.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(41, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 16);
+            this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Category";
             // 
@@ -688,10 +686,10 @@ namespace QLNH.Views
             this.panel14.BackColor = System.Drawing.Color.Moccasin;
             this.panel14.Controls.Add(this.txbSearchTableName);
             this.panel14.Controls.Add(this.btnSearchTable);
-            this.panel14.Location = new System.Drawing.Point(300, 27);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2);
+            this.panel14.Location = new System.Drawing.Point(400, 33);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(425, 41);
+            this.panel14.Size = new System.Drawing.Size(567, 50);
             this.panel14.TabIndex = 10;
             // 
             // txbSearchTableName
@@ -699,10 +697,10 @@ namespace QLNH.Views
             this.txbSearchTableName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbSearchTableName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbSearchTableName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearchTableName.Location = new System.Drawing.Point(10, 11);
-            this.txbSearchTableName.Margin = new System.Windows.Forms.Padding(2);
+            this.txbSearchTableName.Location = new System.Drawing.Point(13, 14);
+            this.txbSearchTableName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSearchTableName.Name = "txbSearchTableName";
-            this.txbSearchTableName.Size = new System.Drawing.Size(354, 19);
+            this.txbSearchTableName.Size = new System.Drawing.Size(472, 23);
             this.txbSearchTableName.TabIndex = 5;
             // 
             // btnSearchTable
@@ -712,10 +710,10 @@ namespace QLNH.Views
             this.btnSearchTable.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnSearchTable.FlatAppearance.BorderSize = 0;
             this.btnSearchTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchTable.Location = new System.Drawing.Point(371, 2);
-            this.btnSearchTable.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchTable.Location = new System.Drawing.Point(495, 2);
+            this.btnSearchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchTable.Name = "btnSearchTable";
-            this.btnSearchTable.Size = new System.Drawing.Size(52, 37);
+            this.btnSearchTable.Size = new System.Drawing.Size(69, 46);
             this.btnSearchTable.TabIndex = 4;
             this.btnSearchTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchTable.UseVisualStyleBackColor = false;
@@ -726,18 +724,18 @@ namespace QLNH.Views
             this.panel15.BackColor = System.Drawing.Color.Linen;
             this.panel15.Controls.Add(this.btnReturn);
             this.panel15.Controls.Add(this.btnRecall);
-            this.panel15.Location = new System.Drawing.Point(8, 592);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2);
+            this.panel15.Location = new System.Drawing.Point(11, 729);
+            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(287, 67);
+            this.panel15.Size = new System.Drawing.Size(383, 82);
             this.panel15.TabIndex = 11;
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(147, 11);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReturn.Location = new System.Drawing.Point(196, 14);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(136, 47);
+            this.btnReturn.Size = new System.Drawing.Size(181, 58);
             this.btnReturn.TabIndex = 12;
             this.btnReturn.Text = " Return {Alt + Z}";
             this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -745,10 +743,10 @@ namespace QLNH.Views
             // 
             // btnRecall
             // 
-            this.btnRecall.Location = new System.Drawing.Point(4, 11);
-            this.btnRecall.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRecall.Location = new System.Drawing.Point(5, 14);
+            this.btnRecall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRecall.Name = "btnRecall";
-            this.btnRecall.Size = new System.Drawing.Size(136, 47);
+            this.btnRecall.Size = new System.Drawing.Size(181, 58);
             this.btnRecall.TabIndex = 0;
             this.btnRecall.Text = " Recall {Ctrl + R}";
             this.btnRecall.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -756,10 +754,10 @@ namespace QLNH.Views
             // 
             // frmTableManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(1413, 669);
+            this.ClientSize = new System.Drawing.Size(1884, 823);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
@@ -772,7 +770,7 @@ namespace QLNH.Views
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTableManager";
