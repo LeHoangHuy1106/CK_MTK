@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace QLNH.DAO
 {
-    class Upload
+    public class Upload
     {
         private static Upload instance;
 
-        internal static Upload Instance 
+        public static Upload Instance 
         {
             get { if (instance == null) instance = new Upload(); return instance; }
             private set => instance = value; 

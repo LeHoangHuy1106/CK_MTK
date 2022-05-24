@@ -35,9 +35,17 @@ namespace QLNH.Views
             this.accountInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kitchenAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taxDiscountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kitchenAreaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bringToHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lvBill = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,13 +53,10 @@ namespace QLNH.Views
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnTaxDiscount = new System.Windows.Forms.Button();
+            this.btnMergeTable = new System.Windows.Forms.Button();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
-            this.nmDiscount = new System.Windows.Forms.NumericUpDown();
             this.btnCheck = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbTable = new System.Windows.Forms.Label();
@@ -61,8 +66,11 @@ namespace QLNH.Views
             this.nmFoodCount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelBill = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.btnDelAllFood = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.flpBill = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -83,22 +91,23 @@ namespace QLNH.Views
             this.panel13 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnAllTable = new System.Windows.Forms.Button();
+            this.lbCalendar = new System.Windows.Forms.Label();
             this.txbSearchTableName = new System.Windows.Forms.TextBox();
             this.btnSearchTable = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnBring = new System.Windows.Forms.Button();
             this.btnRecall = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbTable)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFoodCount)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.panelBill.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -111,22 +120,25 @@ namespace QLNH.Views
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
             this.accountInformationToolStripMenuItem,
+            this.preOrderToolStripMenuItem,
+            this.kitchenAreaToolStripMenuItem,
             this.functionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1884, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1430, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -136,37 +148,57 @@ namespace QLNH.Views
             this.personalToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountInformationToolStripMenuItem.Name = "accountInformationToolStripMenuItem";
-            this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.accountInformationToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.accountInformationToolStripMenuItem.Text = "Account profile";
             // 
             // personalToolStripMenuItem
             // 
             this.personalToolStripMenuItem.Name = "personalToolStripMenuItem";
-            this.personalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.personalToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.personalToolStripMenuItem.Text = "Personal";
             this.personalToolStripMenuItem.Click += new System.EventHandler(this.personalToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // preOrderToolStripMenuItem
+            // 
+            this.preOrderToolStripMenuItem.Name = "preOrderToolStripMenuItem";
+            this.preOrderToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.preOrderToolStripMenuItem.Text = "Pre-Order";
+            this.preOrderToolStripMenuItem.Click += new System.EventHandler(this.preOrderToolStripMenuItem_Click);
+            // 
+            // kitchenAreaToolStripMenuItem
+            // 
+            this.kitchenAreaToolStripMenuItem.Name = "kitchenAreaToolStripMenuItem";
+            this.kitchenAreaToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.kitchenAreaToolStripMenuItem.Text = "Kitchen area";
+            this.kitchenAreaToolStripMenuItem.Click += new System.EventHandler(this.kitchenAreaToolStripMenuItem_Click);
             // 
             // functionToolStripMenuItem
             // 
             this.functionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.payToolStripMenuItem,
-            this.addFoodToolStripMenuItem});
+            this.addFoodToolStripMenuItem,
+            this.taxDiscountToolStripMenuItem,
+            this.recallToolStripMenuItem,
+            this.reOrderToolStripMenuItem,
+            this.delAllToolStripMenuItem,
+            this.kitchenAreaToolStripMenuItem1,
+            this.bringToHomeToolStripMenuItem});
             this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
-            this.functionToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.functionToolStripMenuItem.Text = "Function";
             // 
             // payToolStripMenuItem
             // 
             this.payToolStripMenuItem.Name = "payToolStripMenuItem";
             this.payToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.payToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.payToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.payToolStripMenuItem.Text = "Pay";
             this.payToolStripMenuItem.Click += new System.EventHandler(this.payToolStripMenuItem_Click);
             // 
@@ -174,18 +206,65 @@ namespace QLNH.Views
             // 
             this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
             this.addFoodToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.addFoodToolStripMenuItem.Text = "Add food";
             this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
+            // 
+            // taxDiscountToolStripMenuItem
+            // 
+            this.taxDiscountToolStripMenuItem.Name = "taxDiscountToolStripMenuItem";
+            this.taxDiscountToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.taxDiscountToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.taxDiscountToolStripMenuItem.Text = "Tax & Discount";
+            this.taxDiscountToolStripMenuItem.Click += new System.EventHandler(this.taxDiscountToolStripMenuItem_Click);
+            // 
+            // recallToolStripMenuItem
+            // 
+            this.recallToolStripMenuItem.Name = "recallToolStripMenuItem";
+            this.recallToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.recallToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.recallToolStripMenuItem.Text = "Recall";
+            this.recallToolStripMenuItem.Click += new System.EventHandler(this.btnRecall_Click);
+            // 
+            // reOrderToolStripMenuItem
+            // 
+            this.reOrderToolStripMenuItem.Name = "reOrderToolStripMenuItem";
+            this.reOrderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.reOrderToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.reOrderToolStripMenuItem.Text = "Re order";
+            this.reOrderToolStripMenuItem.Click += new System.EventHandler(this.preOrderToolStripMenuItem_Click);
+            // 
+            // delAllToolStripMenuItem
+            // 
+            this.delAllToolStripMenuItem.Name = "delAllToolStripMenuItem";
+            this.delAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.delAllToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.delAllToolStripMenuItem.Text = "Del all";
+            this.delAllToolStripMenuItem.Click += new System.EventHandler(this.btnDelAllFood_Click);
+            // 
+            // kitchenAreaToolStripMenuItem1
+            // 
+            this.kitchenAreaToolStripMenuItem1.Name = "kitchenAreaToolStripMenuItem1";
+            this.kitchenAreaToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.kitchenAreaToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
+            this.kitchenAreaToolStripMenuItem1.Text = "Kitchen area";
+            this.kitchenAreaToolStripMenuItem1.Click += new System.EventHandler(this.kitchenAreaToolStripMenuItem_Click);
+            // 
+            // bringToHomeToolStripMenuItem
+            // 
+            this.bringToHomeToolStripMenuItem.Name = "bringToHomeToolStripMenuItem";
+            this.bringToHomeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.bringToHomeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.bringToHomeToolStripMenuItem.Text = "Bring to home";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SandyBrown;
             this.panel2.Controls.Add(this.lvBill);
-            this.panel2.Location = new System.Drawing.Point(3, 469);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(2, 472);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(716, 12);
+            this.panel2.Size = new System.Drawing.Size(537, 8);
             this.panel2.TabIndex = 2;
             // 
             // lvBill
@@ -196,15 +275,14 @@ namespace QLNH.Views
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.lvBill.Enabled = false;
             this.lvBill.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvBill.FullRowSelect = true;
             this.lvBill.GridLines = true;
             this.lvBill.HideSelection = false;
-            this.lvBill.Location = new System.Drawing.Point(3, 22);
-            this.lvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lvBill.Location = new System.Drawing.Point(2, 18);
+            this.lvBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvBill.Name = "lvBill";
-            this.lvBill.Size = new System.Drawing.Size(535, 121);
+            this.lvBill.Size = new System.Drawing.Size(402, 99);
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
@@ -232,73 +310,56 @@ namespace QLNH.Views
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.PeachPuff;
-            this.panel3.Controls.Add(this.checkedListBox1);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Controls.Add(this.btnTaxDiscount);
+            this.panel3.Controls.Add(this.btnMergeTable);
             this.panel3.Controls.Add(this.cbSwitchTable);
             this.panel3.Controls.Add(this.btnSwitchTable);
-            this.panel3.Controls.Add(this.nmDiscount);
             this.panel3.Controls.Add(this.btnCheck);
-            this.panel3.Location = new System.Drawing.Point(975, 610);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(731, 578);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(721, 113);
+            this.panel3.Size = new System.Drawing.Size(541, 81);
             this.panel3.TabIndex = 3;
             // 
-            // checkedListBox1
+            // btnTaxDiscount
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(21, 64);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(159, 38);
-            this.checkedListBox1.TabIndex = 12;
+            this.btnTaxDiscount.BackColor = System.Drawing.Color.Linen;
+            this.btnTaxDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaxDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTaxDiscount.Location = new System.Drawing.Point(261, 5);
+            this.btnTaxDiscount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTaxDiscount.Name = "btnTaxDiscount";
+            this.btnTaxDiscount.Size = new System.Drawing.Size(152, 47);
+            this.btnTaxDiscount.TabIndex = 13;
+            this.btnTaxDiscount.Text = "Tax - Discount (Ctrl + D)";
+            this.btnTaxDiscount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTaxDiscount.UseVisualStyleBackColor = false;
+            this.btnTaxDiscount.Click += new System.EventHandler(this.btnTaxDiscount_Click);
             // 
-            // button1
+            // btnMergeTable
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(19, 12);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 50);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Meet Table";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Coral;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(368, 32);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(121, 30);
-            this.panel1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Coral;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(12, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 17);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Discount (%)";
+            this.btnMergeTable.BackColor = System.Drawing.SystemColors.Info;
+            this.btnMergeTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMergeTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMergeTable.Location = new System.Drawing.Point(6, 5);
+            this.btnMergeTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMergeTable.Name = "btnMergeTable";
+            this.btnMergeTable.Size = new System.Drawing.Size(122, 39);
+            this.btnMergeTable.TabIndex = 11;
+            this.btnMergeTable.Text = "Merge Table";
+            this.btnMergeTable.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMergeTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMergeTable.UseVisualStyleBackColor = false;
+            this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
             // 
             // cbSwitchTable
             // 
             this.cbSwitchTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSwitchTable.FormattingEnabled = true;
-            this.cbSwitchTable.Location = new System.Drawing.Point(200, 64);
-            this.cbSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSwitchTable.Location = new System.Drawing.Point(132, 49);
+            this.cbSwitchTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbSwitchTable.Name = "cbSwitchTable";
-            this.cbSwitchTable.Size = new System.Drawing.Size(148, 25);
+            this.cbSwitchTable.Size = new System.Drawing.Size(123, 22);
             this.cbSwitchTable.TabIndex = 7;
             // 
             // btnSwitchTable
@@ -306,10 +367,10 @@ namespace QLNH.Views
             this.btnSwitchTable.BackColor = System.Drawing.SystemColors.Info;
             this.btnSwitchTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSwitchTable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSwitchTable.Location = new System.Drawing.Point(200, 12);
-            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSwitchTable.Location = new System.Drawing.Point(131, 5);
+            this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(149, 50);
+            this.btnSwitchTable.Size = new System.Drawing.Size(124, 41);
             this.btnSwitchTable.TabIndex = 6;
             this.btnSwitchTable.Text = "Switch Table";
             this.btnSwitchTable.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -317,25 +378,15 @@ namespace QLNH.Views
             this.btnSwitchTable.UseVisualStyleBackColor = false;
             this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
-            // nmDiscount
-            // 
-            this.nmDiscount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmDiscount.Location = new System.Drawing.Point(368, 64);
-            this.nmDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nmDiscount.Name = "nmDiscount";
-            this.nmDiscount.Size = new System.Drawing.Size(121, 25);
-            this.nmDiscount.TabIndex = 5;
-            this.nmDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // btnCheck
             // 
             this.btnCheck.BackColor = System.Drawing.Color.Gold;
             this.btnCheck.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(535, 25);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheck.Location = new System.Drawing.Point(417, 5);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCheck.Size = new System.Drawing.Size(161, 60);
+            this.btnCheck.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnCheck.Size = new System.Drawing.Size(112, 65);
             this.btnCheck.TabIndex = 3;
             this.btnCheck.Text = "Pay     \r\n{Ctrl + C}";
             this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -350,30 +401,28 @@ namespace QLNH.Views
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.nmFoodCount);
             this.panel4.Controls.Add(this.btnAddFood);
-            this.panel4.Location = new System.Drawing.Point(975, 33);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(731, 27);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(721, 79);
+            this.panel4.Size = new System.Drawing.Size(541, 64);
             this.panel4.TabIndex = 4;
             // 
             // lbTable
             // 
             this.lbTable.AutoSize = true;
             this.lbTable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTable.Location = new System.Drawing.Point(145, 30);
-            this.lbTable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTable.Location = new System.Drawing.Point(109, 24);
             this.lbTable.Name = "lbTable";
-            this.lbTable.Size = new System.Drawing.Size(61, 22);
+            this.lbTable.Size = new System.Drawing.Size(48, 17);
             this.lbTable.TabIndex = 6;
             this.lbTable.Text = "Table";
             this.lbTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbTable
             // 
-            this.ptbTable.Location = new System.Drawing.Point(19, 4);
-            this.ptbTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptbTable.Location = new System.Drawing.Point(14, 3);
             this.ptbTable.Name = "ptbTable";
-            this.ptbTable.Size = new System.Drawing.Size(112, 71);
+            this.ptbTable.Size = new System.Drawing.Size(84, 58);
             this.ptbTable.TabIndex = 5;
             this.ptbTable.TabStop = false;
             // 
@@ -381,33 +430,34 @@ namespace QLNH.Views
             // 
             this.panel5.BackColor = System.Drawing.Color.Khaki;
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(560, 10);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Location = new System.Drawing.Point(420, 8);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 27);
+            this.panel5.Size = new System.Drawing.Size(116, 22);
             this.panel5.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 4);
+            this.label2.Location = new System.Drawing.Point(16, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Quantity";
             // 
             // nmFoodCount
             // 
             this.nmFoodCount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmFoodCount.Location = new System.Drawing.Point(560, 42);
-            this.nmFoodCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nmFoodCount.Location = new System.Drawing.Point(420, 34);
+            this.nmFoodCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nmFoodCount.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.nmFoodCount.Name = "nmFoodCount";
-            this.nmFoodCount.Size = new System.Drawing.Size(153, 25);
+            this.nmFoodCount.Size = new System.Drawing.Size(115, 21);
             this.nmFoodCount.TabIndex = 3;
             this.nmFoodCount.Value = new decimal(new int[] {
             1,
@@ -419,11 +469,11 @@ namespace QLNH.Views
             // 
             this.btnAddFood.BackColor = System.Drawing.SystemColors.Info;
             this.btnAddFood.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFood.Location = new System.Drawing.Point(368, 5);
-            this.btnAddFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddFood.Location = new System.Drawing.Point(276, 4);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
-            this.btnAddFood.Size = new System.Drawing.Size(173, 66);
+            this.btnAddFood.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnAddFood.Size = new System.Drawing.Size(130, 54);
             this.btnAddFood.TabIndex = 2;
             this.btnAddFood.Text = "Add food\r\n{Ctrl + V}";
             this.btnAddFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -434,53 +484,87 @@ namespace QLNH.Views
             // 
             this.flpTable.AutoScroll = true;
             this.flpTable.BackColor = System.Drawing.Color.Moccasin;
-            this.flpTable.Location = new System.Drawing.Point(400, 89);
-            this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpTable.Location = new System.Drawing.Point(300, 95);
+            this.flpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(567, 634);
+            this.flpTable.Size = new System.Drawing.Size(425, 564);
             this.flpTable.TabIndex = 5;
             // 
-            // panel6
+            // panelBill
             // 
-            this.panel6.BackColor = System.Drawing.Color.Bisque;
-            this.panel6.Controls.Add(this.panel11);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(11, 33);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(383, 690);
-            this.panel6.TabIndex = 6;
+            this.panelBill.BackColor = System.Drawing.Color.Bisque;
+            this.panelBill.Controls.Add(this.panel11);
+            this.panelBill.Controls.Add(this.panel7);
+            this.panelBill.Location = new System.Drawing.Point(8, 27);
+            this.panelBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBill.Name = "panelBill";
+            this.panelBill.Size = new System.Drawing.Size(287, 561);
+            this.panelBill.TabIndex = 6;
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel11.Controls.Add(this.panel16);
             this.panel11.Controls.Add(this.flpBill);
-            this.panel11.Location = new System.Drawing.Point(5, 6);
-            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel11.Location = new System.Drawing.Point(4, 5);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(373, 527);
+            this.panel11.Size = new System.Drawing.Size(280, 428);
             this.panel11.TabIndex = 1;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.PeachPuff;
+            this.panel16.Controls.Add(this.btnDelAllFood);
+            this.panel16.Controls.Add(this.label1);
+            this.panel16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel16.Location = new System.Drawing.Point(2, 7);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(273, 51);
+            this.panel16.TabIndex = 1;
+            // 
+            // btnDelAllFood
+            // 
+            this.btnDelAllFood.BackColor = System.Drawing.Color.Pink;
+            this.btnDelAllFood.Location = new System.Drawing.Point(168, 1);
+            this.btnDelAllFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelAllFood.Name = "btnDelAllFood";
+            this.btnDelAllFood.Size = new System.Drawing.Size(105, 49);
+            this.btnDelAllFood.TabIndex = 13;
+            this.btnDelAllFood.Text = "Del All\r\n {Ctrl + A}";
+            this.btnDelAllFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelAllFood.UseVisualStyleBackColor = false;
+            this.btnDelAllFood.Click += new System.EventHandler(this.btnDelAllFood_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "List chosed food";
             // 
             // flpBill
             // 
             this.flpBill.AutoScroll = true;
             this.flpBill.BackColor = System.Drawing.Color.SeaShell;
-            this.flpBill.Location = new System.Drawing.Point(3, 4);
-            this.flpBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpBill.Location = new System.Drawing.Point(2, 62);
+            this.flpBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpBill.Name = "flpBill";
-            this.flpBill.Size = new System.Drawing.Size(364, 521);
+            this.flpBill.Size = new System.Drawing.Size(273, 364);
             this.flpBill.TabIndex = 0;
-            this.flpBill.Paint += new System.Windows.Forms.PaintEventHandler(this.flpBill_Paint);
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(5, 538);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Location = new System.Drawing.Point(4, 437);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(373, 143);
+            this.panel7.Size = new System.Drawing.Size(280, 116);
             this.panel7.TabIndex = 0;
             // 
             // panel9
@@ -491,19 +575,19 @@ namespace QLNH.Views
             this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(3, 2);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Location = new System.Drawing.Point(2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(364, 82);
+            this.panel9.Size = new System.Drawing.Size(273, 67);
             this.panel9.TabIndex = 5;
             // 
             // txbDiscount
             // 
             this.txbDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbDiscount.Location = new System.Drawing.Point(119, 11);
-            this.txbDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbDiscount.Location = new System.Drawing.Point(89, 9);
+            this.txbDiscount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbDiscount.Name = "txbDiscount";
-            this.txbDiscount.Size = new System.Drawing.Size(213, 20);
+            this.txbDiscount.Size = new System.Drawing.Size(160, 16);
             this.txbDiscount.TabIndex = 5;
             this.txbDiscount.Text = "0";
             this.txbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -511,10 +595,10 @@ namespace QLNH.Views
             // txbTax
             // 
             this.txbTax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbTax.Location = new System.Drawing.Point(119, 50);
-            this.txbTax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTax.Location = new System.Drawing.Point(89, 41);
+            this.txbTax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbTax.Name = "txbTax";
-            this.txbTax.Size = new System.Drawing.Size(213, 20);
+            this.txbTax.Size = new System.Drawing.Size(160, 16);
             this.txbTax.TabIndex = 4;
             this.txbTax.Text = "0";
             this.txbTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -522,18 +606,20 @@ namespace QLNH.Views
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 50);
+            this.label4.Location = new System.Drawing.Point(11, 41);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 19);
+            this.label4.Size = new System.Drawing.Size(35, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "Tax:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 12);
+            this.label3.Location = new System.Drawing.Point(11, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 19);
+            this.label3.Size = new System.Drawing.Size(74, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Discount:";
             // 
@@ -543,10 +629,10 @@ namespace QLNH.Views
             this.panel8.Controls.Add(this.txbTotal);
             this.panel8.Controls.Add(this.label7);
             this.panel8.ForeColor = System.Drawing.Color.Crimson;
-            this.panel8.Location = new System.Drawing.Point(3, 91);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Location = new System.Drawing.Point(2, 74);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(364, 46);
+            this.panel8.Size = new System.Drawing.Size(273, 37);
             this.panel8.TabIndex = 4;
             // 
             // txbTotal
@@ -554,10 +640,10 @@ namespace QLNH.Views
             this.txbTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbTotal.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTotal.ForeColor = System.Drawing.Color.Crimson;
-            this.txbTotal.Location = new System.Drawing.Point(119, 12);
-            this.txbTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTotal.Location = new System.Drawing.Point(89, 10);
+            this.txbTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbTotal.Name = "txbTotal";
-            this.txbTotal.Size = new System.Drawing.Size(213, 20);
+            this.txbTotal.Size = new System.Drawing.Size(160, 16);
             this.txbTotal.TabIndex = 1;
             this.txbTotal.Text = "0";
             this.txbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -568,9 +654,10 @@ namespace QLNH.Views
             this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(15, 14);
+            this.label7.Location = new System.Drawing.Point(11, 11);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 19);
+            this.label7.Size = new System.Drawing.Size(45, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Total:";
             // 
@@ -582,10 +669,10 @@ namespace QLNH.Views
             this.panel10.Controls.Add(this.txbSearchFoodName);
             this.panel10.Controls.Add(this.panel2);
             this.panel10.Controls.Add(this.flpFood);
-            this.panel10.Location = new System.Drawing.Point(975, 117);
-            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel10.Location = new System.Drawing.Point(731, 95);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(721, 487);
+            this.panel10.Size = new System.Drawing.Size(541, 480);
             this.panel10.TabIndex = 7;
             // 
             // btnAllFood
@@ -595,10 +682,10 @@ namespace QLNH.Views
             this.btnAllFood.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnAllFood.FlatAppearance.BorderSize = 0;
             this.btnAllFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAllFood.Location = new System.Drawing.Point(664, 4);
-            this.btnAllFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAllFood.Location = new System.Drawing.Point(498, 3);
+            this.btnAllFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAllFood.Name = "btnAllFood";
-            this.btnAllFood.Size = new System.Drawing.Size(51, 37);
+            this.btnAllFood.Size = new System.Drawing.Size(38, 30);
             this.btnAllFood.TabIndex = 8;
             this.btnAllFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllFood.UseVisualStyleBackColor = false;
@@ -611,10 +698,10 @@ namespace QLNH.Views
             this.btnSearchFood.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnSearchFood.FlatAppearance.BorderSize = 0;
             this.btnSearchFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFood.Location = new System.Drawing.Point(608, 4);
-            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchFood.Location = new System.Drawing.Point(456, 3);
+            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearchFood.Name = "btnSearchFood";
-            this.btnSearchFood.Size = new System.Drawing.Size(51, 37);
+            this.btnSearchFood.Size = new System.Drawing.Size(38, 30);
             this.btnSearchFood.TabIndex = 7;
             this.btnSearchFood.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchFood.UseVisualStyleBackColor = false;
@@ -625,95 +712,127 @@ namespace QLNH.Views
             this.txbSearchFoodName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbSearchFoodName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbSearchFoodName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearchFoodName.Location = new System.Drawing.Point(13, 10);
-            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbSearchFoodName.Location = new System.Drawing.Point(10, 8);
+            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
-            this.txbSearchFoodName.Size = new System.Drawing.Size(576, 23);
+            this.txbSearchFoodName.Size = new System.Drawing.Size(432, 19);
             this.txbSearchFoodName.TabIndex = 6;
             // 
             // flpFood
             // 
             this.flpFood.AutoScroll = true;
             this.flpFood.BackColor = System.Drawing.Color.SeaShell;
-            this.flpFood.Location = new System.Drawing.Point(3, 44);
-            this.flpFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpFood.Location = new System.Drawing.Point(2, 36);
+            this.flpFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpFood.Name = "flpFood";
-            this.flpFood.Size = new System.Drawing.Size(716, 420);
+            this.flpFood.Size = new System.Drawing.Size(537, 434);
             this.flpFood.TabIndex = 0;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Bisque;
             this.panel12.Controls.Add(this.flpCategory);
-            this.panel12.Location = new System.Drawing.Point(1701, 116);
-            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel12.Location = new System.Drawing.Point(1276, 94);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(168, 606);
+            this.panel12.Size = new System.Drawing.Size(134, 565);
             this.panel12.TabIndex = 8;
             // 
             // flpCategory
             // 
             this.flpCategory.AutoScroll = true;
             this.flpCategory.BackColor = System.Drawing.Color.SeaShell;
-            this.flpCategory.Location = new System.Drawing.Point(3, 5);
-            this.flpCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpCategory.Location = new System.Drawing.Point(2, 4);
+            this.flpCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpCategory.Name = "flpCategory";
-            this.flpCategory.Size = new System.Drawing.Size(161, 598);
+            this.flpCategory.Size = new System.Drawing.Size(130, 559);
             this.flpCategory.TabIndex = 0;
             // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.Bisque;
             this.panel13.Controls.Add(this.label5);
-            this.panel13.Location = new System.Drawing.Point(1701, 33);
-            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel13.Location = new System.Drawing.Point(1276, 27);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(168, 78);
+            this.panel13.Size = new System.Drawing.Size(134, 63);
             this.panel13.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 25);
+            this.label5.Location = new System.Drawing.Point(30, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 20);
+            this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Category";
             // 
             // panel14
             // 
-            this.panel14.BackColor = System.Drawing.Color.Moccasin;
+            this.panel14.BackColor = System.Drawing.Color.NavajoWhite;
+            this.panel14.Controls.Add(this.btnAllTable);
+            this.panel14.Controls.Add(this.lbCalendar);
             this.panel14.Controls.Add(this.txbSearchTableName);
             this.panel14.Controls.Add(this.btnSearchTable);
-            this.panel14.Location = new System.Drawing.Point(400, 33);
-            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel14.Location = new System.Drawing.Point(300, 27);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(567, 50);
+            this.panel14.Size = new System.Drawing.Size(425, 64);
             this.panel14.TabIndex = 10;
+            // 
+            // btnAllTable
+            // 
+            this.btnAllTable.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnAllTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAllTable.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnAllTable.FlatAppearance.BorderSize = 0;
+            this.btnAllTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllTable.Location = new System.Drawing.Point(382, 4);
+            this.btnAllTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAllTable.Name = "btnAllTable";
+            this.btnAllTable.Size = new System.Drawing.Size(38, 38);
+            this.btnAllTable.TabIndex = 12;
+            this.btnAllTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllTable.UseVisualStyleBackColor = false;
+            this.btnAllTable.Click += new System.EventHandler(this.btnAllTable_Click);
+            // 
+            // lbCalendar
+            // 
+            this.lbCalendar.AutoSize = true;
+            this.lbCalendar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.lbCalendar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCalendar.ForeColor = System.Drawing.Color.Navy;
+            this.lbCalendar.Location = new System.Drawing.Point(7, 39);
+            this.lbCalendar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCalendar.Name = "lbCalendar";
+            this.lbCalendar.Size = new System.Drawing.Size(39, 16);
+            this.lbCalendar.TabIndex = 11;
+            this.lbCalendar.Text = "date";
             // 
             // txbSearchTableName
             // 
             this.txbSearchTableName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbSearchTableName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbSearchTableName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearchTableName.Location = new System.Drawing.Point(13, 14);
-            this.txbSearchTableName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbSearchTableName.Location = new System.Drawing.Point(10, 11);
+            this.txbSearchTableName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbSearchTableName.Name = "txbSearchTableName";
-            this.txbSearchTableName.Size = new System.Drawing.Size(472, 23);
+            this.txbSearchTableName.Size = new System.Drawing.Size(322, 19);
             this.txbSearchTableName.TabIndex = 5;
             // 
             // btnSearchTable
             // 
-            this.btnSearchTable.BackColor = System.Drawing.Color.Moccasin;
+            this.btnSearchTable.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnSearchTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearchTable.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnSearchTable.FlatAppearance.BorderSize = 0;
             this.btnSearchTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchTable.Location = new System.Drawing.Point(495, 2);
-            this.btnSearchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchTable.Location = new System.Drawing.Point(336, 4);
+            this.btnSearchTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearchTable.Name = "btnSearchTable";
-            this.btnSearchTable.Size = new System.Drawing.Size(69, 46);
+            this.btnSearchTable.Size = new System.Drawing.Size(38, 38);
             this.btnSearchTable.TabIndex = 4;
             this.btnSearchTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearchTable.UseVisualStyleBackColor = false;
@@ -722,55 +841,57 @@ namespace QLNH.Views
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Linen;
-            this.panel15.Controls.Add(this.btnReturn);
+            this.panel15.Controls.Add(this.btnBring);
             this.panel15.Controls.Add(this.btnRecall);
-            this.panel15.Location = new System.Drawing.Point(11, 729);
-            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel15.Location = new System.Drawing.Point(8, 592);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(383, 82);
+            this.panel15.Size = new System.Drawing.Size(287, 67);
             this.panel15.TabIndex = 11;
             // 
-            // btnReturn
+            // btnBring
             // 
-            this.btnReturn.Location = new System.Drawing.Point(196, 14);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(181, 58);
-            this.btnReturn.TabIndex = 12;
-            this.btnReturn.Text = " Return {Alt + Z}";
-            this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnBring.Location = new System.Drawing.Point(144, 11);
+            this.btnBring.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBring.Name = "btnBring";
+            this.btnBring.Size = new System.Drawing.Size(136, 47);
+            this.btnBring.TabIndex = 14;
+            this.btnBring.Text = "Bring to home\r\n{Ctrl + B}";
+            this.btnBring.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBring.UseVisualStyleBackColor = true;
+            this.btnBring.Click += new System.EventHandler(this.btnBring_Click);
             // 
             // btnRecall
             // 
-            this.btnRecall.Location = new System.Drawing.Point(5, 14);
-            this.btnRecall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRecall.Location = new System.Drawing.Point(4, 11);
+            this.btnRecall.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRecall.Name = "btnRecall";
-            this.btnRecall.Size = new System.Drawing.Size(181, 58);
+            this.btnRecall.Size = new System.Drawing.Size(136, 47);
             this.btnRecall.TabIndex = 0;
             this.btnRecall.Text = " Recall {Ctrl + R}";
             this.btnRecall.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRecall.UseVisualStyleBackColor = true;
+            this.btnRecall.Click += new System.EventHandler(this.btnRecall_Click);
             // 
             // frmTableManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(1884, 823);
+            this.ClientSize = new System.Drawing.Size(1430, 669);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panelBill);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTableManager";
@@ -780,17 +901,16 @@ namespace QLNH.Views
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbTable)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFoodCount)).EndInit();
-            this.panel6.ResumeLayout(false);
+            this.panelBill.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -823,7 +943,6 @@ namespace QLNH.Views
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.ComboBox cbSwitchTable;
         private System.Windows.Forms.Button btnSwitchTable;
-        private System.Windows.Forms.NumericUpDown nmDiscount;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -833,11 +952,9 @@ namespace QLNH.Views
         private System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem payToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addFoodToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelBill;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label4;
@@ -859,14 +976,27 @@ namespace QLNH.Views
         private System.Windows.Forms.TextBox txbSearchTableName;
         private System.Windows.Forms.Button btnSearchTable;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnRecall;
         private System.Windows.Forms.PictureBox ptbTable;
         private System.Windows.Forms.Label lbTable;
         private System.Windows.Forms.Button btnSearchFood;
         private System.Windows.Forms.TextBox txbSearchFoodName;
         private System.Windows.Forms.Button btnAllFood;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMergeTable;
+        private System.Windows.Forms.Button btnTaxDiscount;
+        private System.Windows.Forms.ToolStripMenuItem taxDiscountToolStripMenuItem;
+        private System.Windows.Forms.Button btnDelAllFood;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbCalendar;
+        private System.Windows.Forms.ToolStripMenuItem recallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem delAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preOrderToolStripMenuItem;
+        private System.Windows.Forms.Button btnBring;
+        private System.Windows.Forms.ToolStripMenuItem kitchenAreaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kitchenAreaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bringToHomeToolStripMenuItem;
+        private System.Windows.Forms.Button btnAllTable;
     }
 }

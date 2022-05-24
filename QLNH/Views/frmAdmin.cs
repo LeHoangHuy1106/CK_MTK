@@ -78,9 +78,13 @@ namespace QLNH.Views
 
             setIconButton();
 
+            LoadMonthYear();
+
             LoadDateTimePickerBill();
 
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
+            LoadListBillByYear(dtpkFromDate.Value, dtpkToDate.Value);
 
             LoadListFood();
 
@@ -99,6 +103,17 @@ namespace QLNH.Views
             AddTableBinding();
 
             AddAccountBinding();
+        }
+
+        
+
+        private void LoadMonthYear()
+        {
+            // set month
+            nmMonth.Value = DateTime.Now.Month;
+
+            // set year
+            nmYear.Value = DateTime.Now.Year;
         }
 
         private void setIconButton()
@@ -131,6 +146,9 @@ namespace QLNH.Views
             btnShowAccount.Image = IconDAO.Instance.setIconButtonAndImage("icons8-view-24.png");
             btnResetPassword.Image = IconDAO.Instance.setIconButtonAndImage("icons8-reset-24.png");
             btnSearchAccount.Image = IconDAO.Instance.setIconButtonAndImage("icons8-search-24.png");
+
+            //Revenue
+            btnChart.Image = IconDAO.Instance.setIconButtonAndImage("icons8-area-chart-48.png");
 
 
         }
@@ -172,9 +190,31 @@ namespace QLNH.Views
                 {
                     float total = (float)Convert.ToDouble(dt.Rows[0][0].ToString());
                     CultureInfo culture = new CultureInfo("vi-VN");
-                    txbTotalRevenue.Text = total.ToString("c", culture);
+                    txbTotalMonth.Text = total.ToString("c", culture);
+                }
+                else
+                {
+                    txbTotalMonth.Text = "0";
                 }
                
+            }
+        }
+
+        private void LoadListBillByYear(DateTime checkIn, DateTime checkOut)
+        {
+            using (DataTable dt = BillDAO.Instance.GetTotalBillByYear(checkIn, checkOut))
+            {
+                if (!dt.Rows[0][0].ToString().Equals(""))
+                {
+                    float total = (float)Convert.ToDouble(dt.Rows[0][0].ToString());
+                    CultureInfo culture = new CultureInfo("vi-VN");
+                    txbTotalYear.Text = total.ToString("c", culture);
+                }
+                else
+                {
+                    txbTotalYear.Text = "0";
+                }
+
             }
         }
 
@@ -715,6 +755,7 @@ namespace QLNH.Views
         private void btnViewBill_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadListBillByYear(dtpkFromDate.Value, dtpkToDate.Value);
         }
 
         // sự kiện show food
@@ -1048,6 +1089,40 @@ namespace QLNH.Views
         private void btnSearchAccount_Click(object sender, EventArgs e)
         {
             accountList.DataSource = SearchAccountByName(txbSearchAccountName.Text);
+        }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            frmChartRevenue f = new frmChartRevenue();
+            f.ShowDialog();
+
+        }
+
+        private void nmMonth_ValueChanged(object sender, EventArgs e)
+        {
+            int month = (int)nmMonth.Value;
+
+            DateTime today = DateTime.Now;
+
+            dtpkFromDate.Value = new DateTime(today.Year, month, 1);
+
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+        }
+
+        private void nmYear_ValueChanged(object sender, EventArgs e)
+        {
+            int year = (int)nmYear.Value;
+
+            DateTime today = DateTime.Now;
+
+            dtpkFromDate.Value = new DateTime(year, today.Month, 1);
+
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadListBillByYear(dtpkFromDate.Value, dtpkToDate.Value);
         }
     }
 }

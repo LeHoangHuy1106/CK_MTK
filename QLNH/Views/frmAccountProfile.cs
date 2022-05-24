@@ -94,6 +94,10 @@ namespace QLNH.Views
             UpdateAccountInfo();
         }
 
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class AccountEvent : EventArgs

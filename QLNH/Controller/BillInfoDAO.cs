@@ -27,6 +27,11 @@ namespace QLNH.DAO
             DataProvider.Instance.ExecuteQuery("delete BillInfo where idFood = " + id);
         }
 
+        public void DeleteBillInfoByBillID(int id)
+        {
+            DataProvider.Instance.ExecuteQuery("delete BillInfo where idBill = " + id);
+        }
+
         // lấy list Billinfo từ idBill
         public List<BillInfo> GetListBillInfo(int id)
         {
@@ -48,5 +53,6 @@ namespace QLNH.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
         }
+
     }
 }

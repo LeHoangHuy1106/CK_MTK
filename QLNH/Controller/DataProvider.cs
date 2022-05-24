@@ -27,7 +27,7 @@ namespace QLNH.DAO
         //Server name là .\sqlexpress
         //Chọn tên Database strong select or enter a datasbase name
         //-> Advance -> copy code và gán vào biến connectionStr
-        private string connectionStr = @"Data Source=BNA\KC80943;Initial Catalog=QLNH;Integrated Security=True";
+        private string connectionStr = "Data Source=BNA\\KC80943;Initial Catalog=QLNH;Integrated Security=True";
 
         // Trả về DataTable sau khi truy vấn query
         public DataTable ExecuteQuery(string query, object[] parameter = null)

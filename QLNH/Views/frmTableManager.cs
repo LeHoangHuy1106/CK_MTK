@@ -41,12 +41,24 @@ namespace QLNH.Views
             this.loginAccount = acc;
             changeAccount(acc.Type);
 
+            Load();
             LoadTable();
             LoadCategory();
             LoadComboBoxTable(cbSwitchTable);
         }
 
+
+
         #region Method
+
+        private void Load()
+        {
+            List<Food> foodList = FoodDAO.Instance.GetListFood();
+            LoadFood(foodList);
+
+            lbCalendar.Text = DateTime.Now.ToString().Split(' ')[0];
+        }
+
         private void setIconButton()
         {
             // button Add Food
@@ -89,20 +101,74 @@ namespace QLNH.Views
             //btn Recall
             btnRecall.Image = IconDAO.Instance.setIconButtonAndImage("icons8-enter-key-24.png");
 
+            //recallToolStripMenuItem
+            recallToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-enter-key-24.png");
+
             //btn Return
-            btnReturn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-return-24.png");
+            //btnReturn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-return-24.png");
 
             //picturebox Table
             ptbTable.Image = IconDAO.Instance.setIconButtonAndImage("restaurant-table.png");
 
             //button All Food
             btnAllFood.Image = IconDAO.Instance.setIconButtonAndImage("icons8-all-24.png");
+
+            //button All Table
+            btnAllTable.Image = IconDAO.Instance.setIconButtonAndImage("icons8-all-24.png");
+
+            //button Meet Table
+            btnMergeTable.Image = IconDAO.Instance.setIconButtonAndImage("icons8-collect-24.png");
+
+            //button tax & discount
+            btnTaxDiscount.Image = IconDAO.Instance.setIconButtonAndImage("icons8-percent-64.png");
+
+            //taxDiscountToolStripMenuItem
+            taxDiscountToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-percent-64.png");
+
+            // button delete all food list in table
+            btnDelAllFood.Image = IconDAO.Instance.setIconButtonAndImage("icons8-delete-24.png");
+
+            //delAllToolStripMenuItem
+            delAllToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-delete-24.png");
+
+            //PreOrder
+            preOrderToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-pre-order-24.png");
+
+            //reOrderToolStripMenuItem
+            reOrderToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-pre-order-24.png");
+
+            //button bring
+            btnBring.Image = IconDAO.Instance.setIconButtonAndImage("icons8-shopping-basket-add-24.png");
+
+            //bringToHomeToolStripMenuItem
+            bringToHomeToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-shopping-basket-add-24.png");
+
+            //kitchenAreaToolStripMenuItem
+            kitchenAreaToolStripMenuItem.Image = IconDAO.Instance.setIconButtonAndImage("icons8-kitchen-room-24.png");
+
+            //kitchenAreaToolStripMenuItem1
+            kitchenAreaToolStripMenuItem1.Image = IconDAO.Instance.setIconButtonAndImage("icons8-kitchen-room-24.png");
+            
         }
 
         void changeAccount(int type)
         {
             // admin button hiệu lực khi loại người dùng là admin
             adminToolStripMenuItem.Enabled = (type == 1);
+
+            // hiệu lực khi loại người dùng là staff và admin
+            panelBill.Enabled = (type == 2 || type == 1);
+            panel15.Enabled = (type == 2 || type == 1);
+            flpTable.Enabled = (type == 2 || type == 1);
+            panel3.Enabled = (type == 2 || type == 1);
+            panel4.Enabled = (type == 2 || type == 1);
+
+
+            // hiệu lực khi loại người dùng là receptionist và admin
+            preOrderToolStripMenuItem.Enabled = (type == 3 || type == 1);
+
+            // hiệu lực khi loại người dùng là chef và admin
+            kitchenAreaToolStripMenuItem.Enabled = (type == 4 || type == 1);
 
             // hiện thông tin username lên tool strip menu
             accountInformationToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";
@@ -193,9 +259,17 @@ namespace QLNH.Views
             
             foreach(Table item in tableList)
             {
+                // set Cart
+                if (item.Name.Contains("Cart"))
+                {
+                    //btnBring.Click += btnBring_Click;
+                    //btnBring.Tag = item;
+                    continue;
+                }
+
                 // tạo button width và height
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Status; // Environment.NewLine = \n
+                btn.Text = item.Name + Environment.NewLine; // Environment.NewLine = \n
                 btn.TextAlign = ContentAlignment.BottomCenter;
                 btn.Font = new Font(btn.Font, FontStyle.Bold);
 
@@ -205,29 +279,54 @@ namespace QLNH.Views
                 // lưu item vào button
                 btn.Tag = item;
 
-                // set màu cho status
-                switch (item.Status)
+                string status = "Empty";
+                int year = DateTime.Now.Year;
+                int month = DateTime.Now.Month;
+                int day = DateTime.Now.Day;
+                if (TableOrderDAO.Instance.GetStatusById(item.ID, new DateTime(year, month, day, 0, 0, 0)))
                 {
-                    case "Empty":
-
-                        // button Add Food
-                        btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-47.png");
-                        btn.ImageAlign = ContentAlignment.TopCenter;
-                        btn.BackColor = Color.LightYellow;
-                        break;
-                    default:
-                        btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
-                        //btn.Image = Properties.Resources.icons8_table_49;
-                        btn.ImageAlign = ContentAlignment.TopCenter;
-                        btn.BackColor = Color.DarkViolet;
-                        btn.ForeColor = Color.White;
-                        break;
+                    status = "Order";
                 }
+
+                // set màu cho status
+                if(item.Status == "Full")
+                {
+                    btn.Text += item.Status;
+                    btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
+                    //btn.Image = Properties.Resources.icons8_table_49;
+                    btn.ImageAlign = ContentAlignment.TopCenter;
+                    btn.BackColor = Color.DarkViolet;
+                    btn.ForeColor = Color.White;
+                }
+                else
+                {
+                    switch (status)
+                    {
+                        case "Empty":
+                            // button Add Food
+                            btn.Text += item.Status;
+                            btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-47.png");
+                            btn.ImageAlign = ContentAlignment.TopCenter;
+                            btn.BackColor = Color.LightYellow;
+                            break;
+                        default:
+                            btn.Text += "Ordered";
+                            btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
+                            //btn.Image = Properties.Resources.icons8_table_49;
+                            btn.ImageAlign = ContentAlignment.TopCenter;
+                            btn.BackColor = Color.DarkGreen;
+                            btn.ForeColor = Color.White;
+                            break;
+                    }
+                }
+                
 
                 // thêm button vào flow layout panel
                 flpTable.Controls.Add(btn);
             }
         }
+
+        
 
         void ShowBill(int id)
         {
@@ -237,6 +336,11 @@ namespace QLNH.Views
             // lấy bill từ id table
             List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
             float totalPrice = 0;
+
+            if (listBillInfo.Count == 0 && TableDAO.Instance.setTableEmpty(id))
+            {
+                LoadTable();
+            }
 
             foreach (Menu item in listBillInfo)
             {
@@ -267,32 +371,20 @@ namespace QLNH.Views
 
             }
             CultureInfo culture = new CultureInfo("vi-VN"); //en-US
-            
+
             // setting lại luồng
             //Thread.CurrentThread.CurrentCulture = culture;
             //txbTotalPrice.Text = totalPrice.ToString("c");
 
             // hiện tổng tiền đơn vị _đ
             //txbTotalPrice.Text = totalPrice.ToString("c", culture);
-            txbTax.Text = (totalPrice * 0.1).ToString("c", culture);
-            int discount = (int)nmDiscount.Value;
+            double tax = Convert.ToDouble(TaxDiscount.Tax) / 100;
+            txbTax.Text = (totalPrice * tax).ToString("c", culture);
+            int discount = TaxDiscount.Discount;
             txbDiscount.Text = ((totalPrice / 100) * (double)discount).ToString("c", culture);
             txbTotal.Text = (totalPrice + (totalPrice * 0.1) - (totalPrice / 100) * (double)discount).ToString("c", culture);
         }
-
-        void showFood(int id)
-        {
-            flpFood.Controls.Clear();
-
-            // lấy bill từ id table
-            List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
-
-        }
-
-        void DeleteBill(string billName)
-        {
-            
-        }
+       
 
         // Load Table List vào Combo box Table hiện danh sách bàn
         void LoadComboBoxTable(ComboBox cb)
@@ -304,6 +396,20 @@ namespace QLNH.Views
         #endregion
 
         #region Events
+
+        private void btnTaxDiscount_Click(object sender, EventArgs e)
+        {
+            int tax = TaxDiscount.Tax;
+            int discount = TaxDiscount.Discount;
+            frmTaxDiscount f = new frmTaxDiscount(tax, discount);
+            f.ShowDialog();
+        }
+
+        // sự kiện phím tắt button tax & discount Ctrl + D
+        private void taxDiscountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnTaxDiscount_Click(this, new EventArgs());
+        }
 
         // sự kiện phím tắt button pay Ctrl + C
         private void payToolStripMenuItem_Click(object sender, EventArgs e)
@@ -327,8 +433,18 @@ namespace QLNH.Views
             lvBill.Tag = (sender as Button).Tag;
             lbTable.Text = ((sender as Button).Tag as Table).Name;
 
-            List<Food> foodList = FoodDAO.Instance.GetListFood();
-            LoadFood(foodList);
+            ptbTable.Image = IconDAO.Instance.setIconButtonAndImage("restaurant-table.png");
+
+            //List<Food> foodList = FoodDAO.Instance.GetListFood();
+            //LoadFood(foodList);
+            try
+            {
+                lbCalendar.Text = TableOrderDAO.Instance.GetTimeByIdAndDate(tableID, DateTime.Now).ToString();
+            }
+            catch (Exception)
+            {
+                lbCalendar.Text = DateTime.Now.ToString().Split(' ')[0];
+            }
 
             ShowBill(tableID);
         }
@@ -351,9 +467,72 @@ namespace QLNH.Views
         // xoá bill khi click button for flpBill
         private void btnDeleteBill_Click(object sender, EventArgs e)
         {
-            // lấy table id
-            string billName = ((sender as Button).Tag as Menu).FoodName;
-            DeleteBill(billName);
+            // lấy bill food name
+            string billFoodName = ((sender as Button).Tag as Menu).FoodName;
+            int countFood = ((sender as Button).Tag as Menu).Count;
+            List<Food> id = FoodDAO.Instance.GetIDByFoodName(billFoodName);
+            int iD = id[0].ID;
+            /*
+            string foodName = "";
+            bool check = false;
+            foreach (ListViewItem item in lvBill.Items)
+            {
+                foodName = item.Text;
+                List<Food> id2 = FoodDAO.Instance.GetIDByFoodName(foodName);
+                int iD2 = id2[0].ID;
+                check = iD1 == iD2;
+                if (check)
+                {
+                    lvBill.Items.Remove(item);
+                }
+            }*/
+
+            Table table = lvBill.Tag as Table;
+            /*
+            if (table == null)
+            {
+                MessageBox.Show("Please choose table!");
+
+                return;
+            }
+            */
+            // lấy id bill từ table id
+            int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
+
+            // lấy id Food từ Combo box Food đã chọn
+            //int foodID = (cbFood.SelectedItem as Food).ID;
+            
+            int foodID = iD;
+            
+            
+            if (foodID >= 0)
+            {
+                // lấy số lượng từ numberic Food Count
+                int count = -countFood;
+
+                if (idBill == -1)
+                {
+                    // thêm mới Bill
+                    BillDAO.Instance.InsertBill(table.ID);
+                    BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.getMaxIDBill(), foodID, count);
+                }
+                else
+                {
+                    // Bill đã tồn tại
+                    BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
+                }
+
+                // show bill
+                ShowBill(table.ID);
+
+                // load table
+                LoadTable();
+
+                if (idCategoryByClick != -1)
+                {
+                    LoadFoodListByCategoryID(idCategoryByClick);
+                }
+            }
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -408,8 +587,14 @@ namespace QLNH.Views
 
             f.UpdateTable += F_UpdateTable;
 
-            // hiện dialog
+            // đóng form Login
+            this.Hide();
+
+            // hiện form TableManager dưới dạng Dialog
             f.ShowDialog();
+
+            // đóng dialog thì hiện form Login
+            this.Show();
 
         }
 
@@ -565,7 +750,7 @@ namespace QLNH.Views
                 // lấy số lượng từ numberic Food Count
                 int count = (int)nmFoodCount.Value;
 
-                if (idBill == -1)
+                if (idBill < 1)
                 {
                     // thêm mới Bill
                     BillDAO.Instance.InsertBill(table.ID);
@@ -605,9 +790,6 @@ namespace QLNH.Views
                     // lấy id Bill từ id table
                     int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
 
-                    // lấy discount từ numeric Discount
-                    int discount = (int)nmDiscount.Value;
-
                     string total = txbTotal.Text.Split(',')[0]; //txbTotalPrice.Text.Split(',')[0];
                     string[] totalTemp = total.Split('.');
                     total = "";
@@ -618,26 +800,42 @@ namespace QLNH.Views
 
                     double totalPrice = Convert.ToDouble(total);
 
-                    double tax = totalPrice * 0.1;
+                    // get discount
+                    string disc = txbDiscount.Text.Split(',')[0]; //txbTotalPrice.Text.Split(',')[0];
+                    string[] discTemp = disc.Split('.');
+                    disc = "";
+                    foreach (string t in discTemp)
+                    {
+                        disc += t;
+                    }
 
-                    List<BillInfo> list = BillInfoDAO.Instance.GetListBillInfo(idBill);
+                    double discount = Convert.ToDouble(disc);
 
-                    if (idBill != -1)
+                    //get tax
+                    string tax = txbTax.Text.Split(',')[0]; //txbTotalPrice.Text.Split(',')[0];
+                    string[] taxTemp = tax.Split('.');
+                    tax = "";
+                    foreach (string t in taxTemp)
+                    {
+                        tax += t;
+                    }
+                    double taxes = Convert.ToDouble(tax);
+
+                    List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(table.ID);
+                    
+                    if (idBill > 0)
                     {
                         // tiến hành thanh toán
                         String mess = "The bill for the table {0}\n";
                         //mess += "Name\tQuantity\t\tPrice\n";
 
                         mess += "Discount:\t{1}\nTax:\t\t{3}\nTotal price:\t{2}";
-                        if (MessageBox.Show(string.Format(mess, table.Name, discount, totalPrice, tax), "Payment", MessageBoxButtons.OKCancel) ==
-                            DialogResult.OK)
-                        {
-                            // gọi CheckOut
-                            BillDAO.Instance.CheckOut(idBill, discount, (float)totalPrice);
-                            ShowBill(table.ID);
+                        
+                        frmBill f = new frmBill(table.ID, table.Name, idBill, listBillInfo, discount, totalPrice, taxes);
+                        f.ShowDialog();
 
-                            LoadTable();
-                        }
+                        ShowBill(table.ID);
+                        LoadTable();
                     }
                 }
                 else
@@ -652,21 +850,29 @@ namespace QLNH.Views
         // sự kiện button Switch Table
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {
-            // id Table đang chọn
-            int id1 = (lvBill.Tag as Table).ID;
-
-            // lấy id dc chọn từ combo box
-            int id2 = (cbSwitchTable.SelectedItem as Table).ID;
-
-            if(MessageBox.Show(string.Format("Do you want to switch table {0} to table {1}", (lvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Message", MessageBoxButtons.OKCancel)
-                == DialogResult.OK)
+            
+            if (lvBill.Tag != null)
             {
-                // chuyển bàn
-                TableDAO.Instance.SwitchTable(id1, id2);
+                // id Table đang chọn
+                int id1 = (lvBill.Tag as Table).ID;
 
-                LoadTable();
+                // lấy id dc chọn từ combo box
+                int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+
+                if (MessageBox.Show(string.Format("Do you want to switch table {0} to table {1}", (lvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Message", MessageBoxButtons.OKCancel)
+                    == DialogResult.OK)
+                {
+                    // chuyển bàn
+                    TableDAO.Instance.SwitchTable(id1, id2);
+
+                    LoadTable();
+                }
             }
-
+            else
+            {
+                MessageBox.Show("Please choose a table!");
+            }
+            
             
         }
 
@@ -675,13 +881,29 @@ namespace QLNH.Views
             flpTable.Controls.Clear();
 
             //lấy data
-            List<Table> tableList = TableDAO.Instance.SearchForLoadTable(txbSearchTableName.Text);
+            List<Table> tableList;
+            if ("order".Contains(txbSearchTableName.Text.ToLower()))
+            {
+                tableList = TableDAO.Instance.GetListTableOrderOnDate();
+            }
+            else
+            {
+                tableList = TableDAO.Instance.SearchForLoadTableOrder(txbSearchTableName.Text);
+            }
 
             foreach (Table item in tableList)
             {
+                // loại bỏ order if status là empty
+                if ("empty".Contains(txbSearchTableName.Text.ToLower()))
+                {
+                    if (TableOrderDAO.Instance.GetStatusById(item.ID, DateTime.Now))
+                    {
+                        continue;
+                    }
+                }
                 // tạo button width và height
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
-                btn.Text = item.Name + Environment.NewLine + item.Status; // Environment.NewLine = \n
+                btn.Text = item.Name + Environment.NewLine; // Environment.NewLine = \n
                 btn.TextAlign = ContentAlignment.BottomCenter;
                 btn.Font = new Font(btn.Font, FontStyle.Bold);
 
@@ -691,23 +913,45 @@ namespace QLNH.Views
                 // lưu item vào button
                 btn.Tag = item;
 
-                // set màu cho status
-                switch (item.Status)
+                string status = "Empty";
+                int year = DateTime.Now.Year;
+                int month = DateTime.Now.Month;
+                int day = DateTime.Now.Day;
+                if (TableOrderDAO.Instance.GetStatusById(item.ID, new DateTime(year, month, day, 0, 0, 0)))
                 {
-                    case "Empty":
+                    status = "Order";
+                }
 
-                        // button Add Food
-                        btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-47.png");
-                        btn.ImageAlign = ContentAlignment.TopCenter;
-                        btn.BackColor = Color.LightYellow;
-                        break;
-                    default:
-                        btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
-                        //btn.Image = Properties.Resources.icons8_table_49;
-                        btn.ImageAlign = ContentAlignment.TopCenter;
-                        btn.BackColor = Color.DarkViolet;
-                        btn.ForeColor = Color.White;
-                        break;
+                // set màu cho status
+                if (item.Status == "Full")
+                {
+                    btn.Text += item.Status;
+                    btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
+                    //btn.Image = Properties.Resources.icons8_table_49;
+                    btn.ImageAlign = ContentAlignment.TopCenter;
+                    btn.BackColor = Color.DarkViolet;
+                    btn.ForeColor = Color.White;
+                }
+                else
+                {
+                    switch (status)
+                    {
+                        case "Empty":
+                            // button Add Food
+                            btn.Text += item.Status;
+                            btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-47.png");
+                            btn.ImageAlign = ContentAlignment.TopCenter;
+                            btn.BackColor = Color.LightYellow;
+                            break;
+                        default:
+                            btn.Text += "Ordered";
+                            btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
+                            //btn.Image = Properties.Resources.icons8_table_49;
+                            btn.ImageAlign = ContentAlignment.TopCenter;
+                            btn.BackColor = Color.DarkGreen;
+                            btn.ForeColor = Color.White;
+                            break;
+                    }
                 }
 
                 // thêm button vào flow layout panel
@@ -730,14 +974,158 @@ namespace QLNH.Views
 
         }
 
+        private void btnMergeTable_Click(object sender, EventArgs e)
+        {
+            frmMergeTable f = new frmMergeTable();
+            f.MergeTable += F_MergeTable;
+            f.ShowDialog();
+            
+        }
 
+        private void F_MergeTable(object sender, EventArgs e)
+        {
+            LoadTable();
+            
+        }
 
+        private void btnRecall_Click(object sender, EventArgs e)
+        {
+            // lấy table từ lvBill tag
+            Table table = lvBill.Tag as Table;
+
+            if (table == null)
+            {
+                MessageBox.Show("Please choose table!");
+
+                return;
+            }
+
+            // lấy id bill từ table id
+            int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
+
+            int id = BillDAO.Instance.GetNewestBill();
+
+            List<Menu> listMenu = MenuDAO.Instance.GetListedMenuByTable(id);
+            List<Menu> listMenuCurrent = MenuDAO.Instance.GetListMenuByTable(table.ID);
+
+            if (listMenuCurrent.Count == 0 && listMenu.Count != 0)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                foreach (Menu menu in listMenu)
+                {
+                    BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.getMaxIDBill(), FoodDAO.Instance.GetIDByFoodName(menu.FoodName)[0].ID, menu.Count);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Can not recall table ordered!");
+            }
+               
+
+            // show bill
+            ShowBill(table.ID);
+
+            // load table
+            LoadTable();
+
+            if (idCategoryByClick != -1)
+            {
+                LoadFoodListByCategoryID(idCategoryByClick);
+            }
+        }
+
+        private void btnDelAllFood_Click(object sender, EventArgs e)
+        {
+            Table table = lvBill.Tag as Table;
+            // lấy id bill từ table id
+
+            if(table != null)
+            {
+                int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
+
+                if (idBill > 0)
+                {
+                    if (MessageBox.Show(string.Format("Do you want to delete all food for table {0}", TableDAO.Instance.GetTableNameByIdTable(table.ID)), "Message", MessageBoxButtons.OKCancel)
+                    == DialogResult.OK)
+                    {
+                        BillInfoDAO.Instance.DeleteBillInfoByBillID(idBill);
+
+                        // show bill
+                        ShowBill(table.ID);
+
+                        // load table
+                        LoadTable();
+
+                        if (idCategoryByClick != -1)
+                        {
+                            LoadFoodListByCategoryID(idCategoryByClick);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please choose a table!");
+            }
+        }
+
+        private void preOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPreOrder f = new frmPreOrder();
+
+            // đóng form Login
+            this.Hide();
+
+            // hiện form TableManager dưới dạng Dialog
+            f.ShowDialog();
+
+            // đóng dialog thì hiện form Login
+            this.Show();
+
+            LoadTable();
+        }
+        private void kitchenAreaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKitchenArea f = new frmKitchenArea();
+
+            // đóng form Login
+            this.Hide();
+
+            // hiện form TableManager dưới dạng Dialog
+            f.ShowDialog();
+
+            // đóng dialog thì hiện form Login
+            this.Show();
+        }
 
         #endregion
 
-        private void flpBill_Paint(object sender, PaintEventArgs e)
+        private void btnBring_Click(object sender, EventArgs e)
         {
+            // lấy table id
+            // thêm mới Bill
+            int id = TableDAO.Instance.getMaxIDTable();
+            if (!TableDAO.Instance.GetTableNameByIdTable(id).ToString().Contains("Cart"))
+            {
+                TableDAO.Instance.InsertCart();
+            }
+            
+            int tableID = TableDAO.Instance.getMaxIDTable();
+            Table table = TableDAO.Instance.GetTableById(tableID);
+            lvBill.Tag = table;
+            lbTable.Text = table.Name;
+            ptbTable.Image = IconDAO.Instance.setIconButtonAndImage("icons8-buying-48.png");
 
+            //List<Food> foodList = FoodDAO.Instance.GetListFood();
+            //LoadFood(foodList);
+
+            ShowBill(tableID);
         }
+
+        private void btnAllTable_Click(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
     }
 }

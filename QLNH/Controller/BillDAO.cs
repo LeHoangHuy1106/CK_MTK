@@ -36,9 +36,9 @@ namespace QLNH.DAO
             }
             return -1;
         }
-        
+
         // check out Bill bằng update
-        public void CheckOut(int id, int discount, float totalPrice)
+        public void CheckOut(int id,  int discount, float totalPrice)
         {
             string query = "update Bill set dateCheckOut = getdate(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " where id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
@@ -60,6 +60,11 @@ namespace QLNH.DAO
         public DataTable GetTotalBillByDate(DateTime checkIn, DateTime checkOut)
         {
             return DataProvider.Instance.ExecuteQuery("exec USP_GetTotalBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
+
+        internal DataTable GetTotalBillByYear(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetTotalBillByYear @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
 
         public DataTable GetBillListByDateAndPage(DateTime checkIn, DateTime checkOut, int pageNum)
@@ -84,6 +89,20 @@ namespace QLNH.DAO
             {
                 return 1;
             }
+        }
+
+        public int GetNewestBill()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT TOP 1 * FROM Bill where status = 1 ORDER BY ID DESC");
+
+            // có data
+            if (data.Rows.Count > 0)
+            {
+                // lấy dòng đầu tiên
+                Bill bill = new Bill(data.Rows[0]);
+                return bill.IdTable;
+            }
+            return -1;
         }
     }
 }

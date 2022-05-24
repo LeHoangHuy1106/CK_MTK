@@ -78,6 +78,7 @@ namespace QLNH.Views
             this.txbUsername.ReadOnly = true;
             this.txbUsername.Size = new System.Drawing.Size(309, 27);
             this.txbUsername.TabIndex = 1;
+            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
             // 
             // label1
             // 
