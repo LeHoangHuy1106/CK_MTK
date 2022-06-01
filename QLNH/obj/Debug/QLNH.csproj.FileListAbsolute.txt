@@ -461,3 +461,20 @@ D:\EXERCISE\Chuyen de cong nghe phan mem\ck\Source\Source\sourceCode\QLNH\QLNH\o
 D:\EXERCISE\Chuyen de cong nghe phan mem\ck\Source\Source\sourceCode\QLNH\QLNH\obj\Debug\QLNH.csproj.CopyComplete
 D:\EXERCISE\Chuyen de cong nghe phan mem\ck\Source\Source\sourceCode\QLNH\QLNH\obj\Debug\QLNH.exe
 D:\EXERCISE\Chuyen de cong nghe phan mem\ck\Source\Source\sourceCode\QLNH\QLNH\obj\Debug\QLNH.pdb
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.csproj.AssemblyReference.cache
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmAccountProfile.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmAdmin.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmBill.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmChartRevenue.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmKitchenArea.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmListTableOrdered.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmLogin.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmMergeTable.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmPreOrder.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmTableManager.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Properties.Resources.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.Views.frmTaxDiscount.resources
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.csproj.GenerateResource.cache
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.csproj.CoreCompileInputs.cache
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.exe
+D:\EXERCISE\MauThietKe\CK\QLNH\QLNH\QLNH\obj\Debug\QLNH.pdb

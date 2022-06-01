@@ -380,6 +380,7 @@ namespace QLNH.Views
 
             string image = txbImageAccount.Text;
 
+
             AddAccount(userName, displayName, type, image);
 
         }

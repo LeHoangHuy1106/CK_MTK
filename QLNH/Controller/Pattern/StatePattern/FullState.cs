@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QLNH.Controler.Pattern.StatePattern
 {
-    class FullStatecs:TableState
+    class FullState:TableState
     {
         public string State()
         {

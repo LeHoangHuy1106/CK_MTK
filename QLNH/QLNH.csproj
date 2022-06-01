@@ -91,10 +91,34 @@
     <Compile Include="Controller\MenuDAO.cs" />
     <Compile Include="Controller\MenuKitchenDAO.cs" />
     <Compile Include="Controller\Pattern\CommandPattern\button.cs" />
-    <Compile Include="Controller\Pattern\StatePattern\EmptyStatecs.cs" />
-    <Compile Include="Controller\Pattern\StatePattern\FullStatecs.cs" />
+    <Compile Include="Controller\Pattern\CommandPattern\ButtonCommandBase.cs" />
+    <Compile Include="Controller\Pattern\CommandPattern\FlowLayoutPanelCommand.cs" />
+    <Compile Include="Controller\Pattern\CommandPattern\ICommands.cs" />
+    <Compile Include="Controller\Pattern\CommandPattern\PanelCommand.cs" />
+    <Compile Include="Controller\Pattern\CommandPattern\ToolStripMenuItemCommand.cs" />
+    <Compile Include="Controller\Pattern\CompositePattern\food.cs" />
+    <Compile Include="Controller\Pattern\CompositePattern\FoodCategory.cs" />
+    <Compile Include="Controller\Pattern\CompositePattern\menuComposite.cs" />
+    <Compile Include="Controller\Pattern\FactoryPattern\AccountStaff.cs" />
+    <Compile Include="Controller\Pattern\FactoryPattern\AccountStaffFactory.cs" />
+    <Compile Include="Controller\Pattern\FactoryPattern\Chef.cs" />
+    <Compile Include="Controller\Pattern\FactoryPattern\receptionist.cs" />
+    <Compile Include="Controller\Pattern\FactoryPattern\staff.cs" />
+    <Compile Include="Controller\Pattern\StatePattern\EmptyState.cs" />
+    <Compile Include="Controller\Pattern\StatePattern\FullState.cs" />
+    <Compile Include="Controller\Pattern\StatePattern\paidState.cs" />
     <Compile Include="Controller\Pattern\StatePattern\TableState.cs" />
     <Compile Include="Controller\Pattern\StatePattern\TableStateContext.cs" />
+    <Compile Include="Controller\Pattern\StrategyPattern\CheckContext.cs" />
+    <Compile Include="Controller\Pattern\StrategyPattern\CheckData.cs" />
+    <Compile Include="Controller\Pattern\StrategyPattern\CheckImage.cs" />
+    <Compile Include="Controller\Pattern\StrategyPattern\CheckType.cs" />
+    <Compile Include="Controller\Pattern\StrategyPattern\CheckUserName.cs" />
+    <Compile Include="Controller\Pattern\TemplatePattern\CaPhileSotChanhDay.cs" />
+    <Compile Include="Controller\Pattern\TemplatePattern\FoodTemplate.cs" />
+    <Compile Include="Controller\Pattern\TemplatePattern\MucSaoSaTe.cs" />
+    <Compile Include="Controller\Pattern\TemplatePattern\SaladCaNgu.cs" />
+    <Compile Include="Controller\Pattern\TemplatePattern\SuonNuongBBQ - Copy.cs" />
     <Compile Include="Controller\TableDAO.cs" />
     <Compile Include="Controller\TableOrderDAO.cs" />
     <Compile Include="Controller\TaxDiscount.cs" />
@@ -263,7 +287,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\Pattern\StrategyPattern\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

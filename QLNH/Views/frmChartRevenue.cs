@@ -52,5 +52,10 @@ namespace QLNH.Views
         {
             LoadChart();
         }
+
+        private void frmChartRevenue_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

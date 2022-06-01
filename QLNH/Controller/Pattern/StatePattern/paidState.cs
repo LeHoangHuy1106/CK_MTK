@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLNH.Controler.Pattern.StatePattern
+namespace QLNH.Controller.Pattern.StatePattern
 {
-    class EmptyStatecs : TableState
+    class paidState : TableState
     {
         public string State()
         {
-            return "Empty";
+            return "Paid";
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using QLNH.DAO;
 using QLNH.Model;
+using QLNH.Controler.Pattern.CommandPattern;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Menu = QLNH.Model.Menu;
 using Properties = QLNH.Properties;
+using QLNH.Controller.Pattern.CommandPattern;
 
 namespace QLNH.Views
 {
@@ -25,10 +27,10 @@ namespace QLNH.Views
         private static int idFoodByClick = -1;
         private static int idCategoryByClick = -1;
 
-        public Account LoginAccount 
+        public Account LoginAccount
         {
             get { return loginAccount; }
-            set { loginAccount = value;} 
+            set { loginAccount = value; }
         }
 
         public frmTableManager(Account acc)
@@ -148,27 +150,61 @@ namespace QLNH.Views
 
             //kitchenAreaToolStripMenuItem1
             kitchenAreaToolStripMenuItem1.Image = IconDAO.Instance.setIconButtonAndImage("icons8-kitchen-room-24.png");
-            
+
         }
 
         void changeAccount(int type)
         {
-            // admin button hiệu lực khi loại người dùng là admin
-            adminToolStripMenuItem.Enabled = (type == 1);
+            var commandBase = new ButtonCommandBase();
+            ICommands[] items;
 
-            // hiệu lực khi loại người dùng là staff và admin
-            panelBill.Enabled = (type == 2 || type == 1);
-            panel15.Enabled = (type == 2 || type == 1);
-            flpTable.Enabled = (type == 2 || type == 1);
-            panel3.Enabled = (type == 2 || type == 1);
-            panel4.Enabled = (type == 2 || type == 1);
+            if (type != 1)
+            {
+                // admin button hiệu lực khi loại người dùng là admin
+                ICommands adminToolStripCommand = new ToolStripMenuItemCommand(adminToolStripMenuItem);
+                //adminToolStripMenuItem.Enabled = (type == 1);
+                items = new[] { adminToolStripCommand };
+                commandBase.setItems(items);
+                commandBase.executeDisable();
+            }
 
+            if (type != 1 && type != 2)
+            {
+                // hiệu lực khi loại người dùng là staff và admin
+                ICommands panelBillCommand = new PanelCommand(panelBill);
+                ICommands panel15Command = new PanelCommand(panel15);
+                ICommands panel3Command = new PanelCommand(panel3);
+                ICommands panel4Command = new PanelCommand(panel4);
+                ICommands flpTableCommand = new FlowLayoutPanelCommand(flpTable);
+                items = new[] { panelBillCommand, panel15Command, panel3Command, panel4Command, flpTableCommand };
+                commandBase.setItems(items);
+                commandBase.executeDisable();
+            }
 
-            // hiệu lực khi loại người dùng là receptionist và admin
-            preOrderToolStripMenuItem.Enabled = (type == 3 || type == 1);
+            if (type != 3 && type != 1)
+            {
+                // hiệu lực khi loại người dùng là receptionist và admin
+                ICommands preOrderToolStripCommand = new ToolStripMenuItemCommand(preOrderToolStripMenuItem);
+                items = new[] { preOrderToolStripCommand };
+                commandBase.setItems(items);
+                commandBase.executeDisable();
+            }
 
-            // hiệu lực khi loại người dùng là chef và admin
-            kitchenAreaToolStripMenuItem.Enabled = (type == 4 || type == 1);
+            if (type != 4 && type != 1)
+            {
+                // hiệu lực khi loại người dùng là chef và admin
+                ICommands kitchenToolStrip = new ToolStripMenuItemCommand(kitchenAreaToolStripMenuItem);
+                //kitchenAreaToolStripMenuItem.Enabled = (type == 4 || type == 1);
+                items = new[] { kitchenToolStrip };
+                commandBase.setItems(items);
+                commandBase.executeDisable();
+            }
+
+            //panelBill.Enabled = (type == 2 || type == 1);
+            //panel15.Enabled = (type == 2 || type == 1);
+            //flpTable.Enabled = (type == 2 || type == 1);
+            //panel3.Enabled = (type == 2 || type == 1);
+            //panel4.Enabled = (type == 2 || type == 1);
 
             // hiện thông tin username lên tool strip menu
             accountInformationToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";
@@ -178,7 +214,7 @@ namespace QLNH.Views
         {
             // lấy danh sách Category
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
-            
+
             // đổ vào ComboBox
             //cbCategory.DataSource = listCategory;
 
@@ -247,7 +283,7 @@ namespace QLNH.Views
             //cbFood.DisplayMember = "Name";
 
             LoadFood(listFood);
-            
+
         }
 
         void LoadTable()
@@ -256,8 +292,8 @@ namespace QLNH.Views
 
             //lấy data
             List<Table> tableList = TableDAO.Instance.LoadTableList();
-            
-            foreach(Table item in tableList)
+
+            foreach (Table item in tableList)
             {
                 // set Cart
                 if (item.Name.Contains("Cart"))
@@ -289,7 +325,7 @@ namespace QLNH.Views
                 }
 
                 // set màu cho status
-                if(item.Status == "Full")
+                if (item.Status == "Full")
                 {
                     btn.Text += item.Status;
                     btn.Image = IconDAO.Instance.setIconButtonAndImage("icons8-table-49.png");
@@ -319,14 +355,14 @@ namespace QLNH.Views
                             break;
                     }
                 }
-                
+
 
                 // thêm button vào flow layout panel
                 flpTable.Controls.Add(btn);
             }
         }
 
-        
+
 
         void ShowBill(int id)
         {
@@ -351,7 +387,7 @@ namespace QLNH.Views
 
                 totalPrice += item.TotalPrice;
 
-                Button btn = new Button() { Width = 250, Height = 60};
+                Button btn = new Button() { Width = 250, Height = 60 };
                 btn.Text = item.FoodName.ToString() + new string(' ', 45 - item.TotalPrice.ToString().Length - item.FoodName.ToString().Length) + item.TotalPrice.ToString() + "\n\n";
                 btn.Text += "Price:" + new string(' ', 5) + item.Price.ToString();
                 btn.Text += new string(' ', 45 - 22 - item.Price.ToString().Length - item.Count.ToString().Length) + "Count:" + new string(' ', 5) + item.Count.ToString();
@@ -384,7 +420,7 @@ namespace QLNH.Views
             txbDiscount.Text = ((totalPrice / 100) * (double)discount).ToString("c", culture);
             txbTotal.Text = (totalPrice + (totalPrice * 0.1) - (totalPrice / 100) * (double)discount).ToString("c", culture);
         }
-       
+
 
         // Load Table List vào Combo box Table hiện danh sách bàn
         void LoadComboBoxTable(ComboBox cb)
@@ -501,10 +537,10 @@ namespace QLNH.Views
 
             // lấy id Food từ Combo box Food đã chọn
             //int foodID = (cbFood.SelectedItem as Food).ID;
-            
+
             int foodID = iD;
-            
-            
+
+
             if (foodID >= 0)
             {
                 // lấy số lượng từ numberic Food Count
@@ -729,7 +765,7 @@ namespace QLNH.Views
 
                 return;
             }
-            
+
             // lấy id bill từ table id
             int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
 
@@ -744,7 +780,7 @@ namespace QLNH.Views
             {
                 MessageBox.Show("Please chose a food!");
             }
-            
+
             if (foodID >= 0)
             {
                 // lấy số lượng từ numberic Food Count
@@ -768,14 +804,14 @@ namespace QLNH.Views
                 // load table
                 LoadTable();
 
-                if(idCategoryByClick != -1)
+                if (idCategoryByClick != -1)
                 {
                     LoadFoodListByCategoryID(idCategoryByClick);
                 }
 
 
             }
-            
+
         }
 
         // Sự kiện cho thanh toán button check
@@ -822,7 +858,7 @@ namespace QLNH.Views
                     double taxes = Convert.ToDouble(tax);
 
                     List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(table.ID);
-                    
+
                     if (idBill > 0)
                     {
                         // tiến hành thanh toán
@@ -830,7 +866,7 @@ namespace QLNH.Views
                         //mess += "Name\tQuantity\t\tPrice\n";
 
                         mess += "Discount:\t{1}\nTax:\t\t{3}\nTotal price:\t{2}";
-                        
+
                         frmBill f = new frmBill(table.ID, table.Name, idBill, listBillInfo, discount, totalPrice, taxes);
                         f.ShowDialog();
 
@@ -844,13 +880,13 @@ namespace QLNH.Views
                 }
             }
             catch (Exception) { }
-            
+
         }
 
         // sự kiện button Switch Table
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {
-            
+
             if (lvBill.Tag != null)
             {
                 // id Table đang chọn
@@ -872,8 +908,8 @@ namespace QLNH.Views
             {
                 MessageBox.Show("Please choose a table!");
             }
-            
-            
+
+
         }
 
         private void btnSearchTable_Click(object sender, EventArgs e)
@@ -979,13 +1015,13 @@ namespace QLNH.Views
             frmMergeTable f = new frmMergeTable();
             f.MergeTable += F_MergeTable;
             f.ShowDialog();
-            
+
         }
 
         private void F_MergeTable(object sender, EventArgs e)
         {
             LoadTable();
-            
+
         }
 
         private void btnRecall_Click(object sender, EventArgs e)
@@ -1020,7 +1056,7 @@ namespace QLNH.Views
             {
                 MessageBox.Show("Can not recall table ordered!");
             }
-               
+
 
             // show bill
             ShowBill(table.ID);
@@ -1039,7 +1075,7 @@ namespace QLNH.Views
             Table table = lvBill.Tag as Table;
             // lấy id bill từ table id
 
-            if(table != null)
+            if (table != null)
             {
                 int idBill = BillDAO.Instance.GetUnCheckBillIDByTableID(table.ID);
 
@@ -1109,7 +1145,7 @@ namespace QLNH.Views
             {
                 TableDAO.Instance.InsertCart();
             }
-            
+
             int tableID = TableDAO.Instance.getMaxIDTable();
             Table table = TableDAO.Instance.GetTableById(tableID);
             lvBill.Tag = table;
